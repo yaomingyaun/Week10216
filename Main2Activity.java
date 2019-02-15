@@ -46,19 +46,18 @@ public class Main2Activity extends AppCompatActivity implements IView {
             @Override
             public void displayImage(Context context, Object path, ImageView imageView) {
 
-                BannerBean.ResultBean bean= (BannerBean.ResultBean) path;
-              Uri uri=Uri.parse(bean.getPicture());
-               imageView.setImageURI(uri);
-               // Glide.with(context).load(path).into(imageView);
+
+                 Uri uri=Uri.parse((String) path);
+                 imageView.setImageURI(uri);
+
 
             }
 
             @Override
             public ImageView createImageView(Context context) {
-             SimpleDraweeView simpleDraweeView=new SimpleDraweeView(context);
+
+            SimpleDraweeView simpleDraweeView=new SimpleDraweeView(context);
                GenericDraweeHierarchyBuilder draweeHierarchyBuilder=new GenericDraweeHierarchyBuilder(getResources());
-               /* ImageView imageView=new ImageView(context);
-                imageView.setScaleType(ImageView.ScaleType.FIT_XY);*/
                 return simpleDraweeView;
             }
         });
