@@ -1,5 +1,9 @@
 package com.bw.ymy.zy1.refit;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +23,14 @@ public class Retfit {
     private static  final String BASEURL="http://172.17.8.100/small/";
     private OkHttpClient httpClient;
     private static Retfit instance;
+    //判断网络
+    public static boolean newwork(Context context)
+    {
+        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = manager.getActiveNetworkInfo();
+        return activeNetworkInfo!=null && activeNetworkInfo.isAvailable();
 
+    }
     public  static  synchronized  Retfit getInstance()
     {
         if(instance==null)

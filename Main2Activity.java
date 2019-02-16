@@ -46,10 +46,8 @@ public class Main2Activity extends AppCompatActivity implements IView {
             @Override
             public void displayImage(Context context, Object path, ImageView imageView) {
 
-
                  Uri uri=Uri.parse((String) path);
                  imageView.setImageURI(uri);
-
 
             }
 

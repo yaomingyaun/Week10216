@@ -45,8 +45,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
         viewHolder.title.setText(mdata.get(i).getCommodityName());
-        Uri uri=Uri.parse(mdata.get(i).getMasterPic());
-        viewHolder.icon.setImageURI(uri);
+        viewHolder.price.setText("￥"+mdata.get(i).getPrice()+"");
+       Uri uri=Uri.parse(mdata.get(i).getMasterPic());
+     viewHolder.icon.setImageURI(uri);
+      //  Glide.with(context).load(mdata.get(i).getMasterPic()).into(viewHolder.icon);
+
         viewHolder.line.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +70,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     class  ViewHolder extends  RecyclerView.ViewHolder{
-        TextView title;
+        TextView title,price;
         SimpleDraweeView icon;
         LinearLayout line;
         public ViewHolder(@NonNull View itemView) {
@@ -75,6 +78,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             title=itemView.findViewById(R.id.title);
             icon=itemView.findViewById(R.id.icon);
             line=itemView.findViewById(R.id.line);
+            price=itemView.findViewById(R.id.price);
         }
     }
 }
